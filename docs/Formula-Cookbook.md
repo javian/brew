@@ -129,11 +129,12 @@ to favour finding `keg_only` formulae first.
 
 ```ruby
 class Foo < Formula
-  depends_on "pkg-config"
-  depends_on "jpeg"
-  depends_on "readline" => :recommended
+  depends_on "pkg-config" => :build
   depends_on "gtk+" => :optional
-  depends_on :x11 => :optional
+  depends_on :x11 => [:optional, :test]
+  depends_on "readline" => :recommended
+  depends_on "httpd" => :test
+  depends_on "jpeg"
 end
 ```
 
